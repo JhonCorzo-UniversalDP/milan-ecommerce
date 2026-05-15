@@ -1,0 +1,48 @@
+{
+  "name": "milan-ecommerce",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "next dev -p 80",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "seed": "tsx prisma/seed.ts",
+    "db:setup": "prisma generate && prisma migrate dev --name init && pnpm seed",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@prisma/client": "5.22.0",
+    "next": "15.5.18",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.18",
+    "@types/react": "18.3.28",
+    "@types/react-dom": "18.3.7",
+    "@vitejs/plugin-react": "4.7.0",
+    "autoprefixer": "10.5.0",
+    "eslint": "9.39.4",
+    "eslint-config-next": "15.5.18",
+    "husky": "9.1.7",
+    "jsdom": "25.0.1",
+    "postcss": "8.5.14",
+    "prisma": "5.22.0",
+    "tailwindcss": "3.4.19",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vitest": "2.1.9"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "prisma",
+      "esbuild"
+    ]
+  }
+}

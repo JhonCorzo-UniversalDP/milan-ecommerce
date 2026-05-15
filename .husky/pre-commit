@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# TODO Fase B: descomentar las siguientes líneas para activar el feedback loop.
+# El hook debe bloquear commits cuando lint o tests fallen.
+#
+# pnpm lint
+# pnpm test

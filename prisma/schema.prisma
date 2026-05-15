@@ -1,0 +1,45 @@
+// Prisma schema para Milán Ecommerce
+// Usa SQLite para mantener el setup local sin Docker.
+// En la Fase B el catálogo de productos viene del MCP del Ej 1; los modelos
+// User y CartItem siguen viviendo aquí.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  priceCents  Int
+  category    String
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  cartItems   CartItem[]
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  cartItems CartItem[]
+}
+
+model CartItem {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+}

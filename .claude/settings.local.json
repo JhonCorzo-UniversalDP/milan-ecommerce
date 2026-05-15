@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm react-router:*)",
+      "Bash(ls:*)",
+      "Bash(npx react-router:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm vitest:*)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(pnpm tsc:*)",
+      "Bash(pnpm drizzle-kit:*)",
+      "Bash(claude skills:*)",
+      "Bash(cp:*)",
+      "WebSearch",
+      "WebFetch(domain:valibot.dev)",
+      "Bash(pnpm run:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)"
+    ]
+  }
+}

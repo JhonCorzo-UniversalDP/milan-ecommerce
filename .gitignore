@@ -1,0 +1,11 @@
+node_modules
+.next
+.env
+*.db
+*.db-journal
+dist
+.DS_Store
+
+# Mantener pnpm-lock.yaml versionado — es crítico para reproducibilidad
+# y seguridad (mismas versiones exactas para todo el equipo).
+# NO agregar pnpm-lock.yaml aquí.

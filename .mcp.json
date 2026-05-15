@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "postgres-local": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "postgres-mcp",
+        "--access-mode=restricted"
+      ],
+      "env": {
+        "DATABASE_URI": "postgresql:///rutavity-28-04"
+      }
+    }
+  }
+}
