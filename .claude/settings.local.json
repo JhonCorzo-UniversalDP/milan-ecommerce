@@ -18,7 +18,10 @@
       "WebFetch(domain:valibot.dev)",
       "Bash(pnpm run:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m ':*)"
+      "Bash(git commit -m ':*)",
+      "Bash(gh repo *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
