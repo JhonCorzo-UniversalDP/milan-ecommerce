@@ -1,13 +1,20 @@
-// TODO Fase A: mostrar al menos 1 producto hardcoded con link a /product/[slug]
-// TODO Fase B: implementar grid de productos + buscador server-side
+import Link from "next/link";
+import { listProducts } from "@/lib/db/catalog";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await listProducts();
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Catálogo</h1>
-      <p className="text-neutral-600">
-        Placeholder — implementar grid de productos y buscador.
-      </p>
+      <ul className="space-y-2">
+        {products.map((p) => (
+          <li key={p.id}>
+            <Link href={`/product/${p.slug}`} className="text-blue-600 hover:underline">
+              {p.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
