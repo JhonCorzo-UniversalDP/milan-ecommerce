@@ -101,6 +101,22 @@ describe("jsonAdapter.searchProducts", () => {
   });
 });
 
+describe("jsonAdapter.getProductsByIds", () => {
+  it("preserves the requested order", async () => {
+    const r = await jsonAdapter.getProductsByIds(["3", "1", "5"]);
+    expect(r.map((p) => p.id)).toEqual(["3", "1", "5"]);
+  });
+
+  it("filters out missing ids", async () => {
+    const r = await jsonAdapter.getProductsByIds(["1", "999", "2"]);
+    expect(r.map((p) => p.id)).toEqual(["1", "2"]);
+  });
+
+  it("returns empty array for empty input", async () => {
+    expect(await jsonAdapter.getProductsByIds([])).toEqual([]);
+  });
+});
+
 describe("jsonAdapter.findSimilar", () => {
   it("excludes the queried product", async () => {
     const r = await jsonAdapter.findSimilar("1");

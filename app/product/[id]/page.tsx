@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductById, findSimilar, formatPriceCents } from "@/lib/catalog";
+import { AddToCartButton } from "./AddToCartButton";
 
 export default async function ProductPage({
   params,
@@ -21,6 +22,7 @@ export default async function ProductPage({
           Código de barras: {product.barcode ?? "—"}
         </p>
         <p className="mb-4">{product.description ?? "Sin descripción."}</p>
+        <AddToCartButton productId={product.id} />
       </section>
 
       {similar.length > 0 && (

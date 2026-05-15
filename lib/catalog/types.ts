@@ -11,4 +11,5 @@ export type CatalogAdapter = {
   getProductById(id: string): Promise<Product | null>;
   searchProducts(query: string, options?: { limit?: number }): Promise<Product[]>;
   findSimilar(productId: string, options?: { limit?: number }): Promise<Product[]>;
+  getProductsByIds(ids: string[]): Promise<Product[]>;
 };

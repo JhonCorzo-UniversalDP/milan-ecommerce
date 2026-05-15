@@ -66,6 +66,17 @@ export const jsonAdapter: CatalogAdapter = {
     return limit === undefined ? matches : matches.slice(0, limit);
   },
 
+  async getProductsByIds(ids) {
+    const all = load();
+    const byId = new Map(all.map((p) => [p.id, p]));
+    const out: Product[] = [];
+    for (const id of ids) {
+      const p = byId.get(id);
+      if (p) out.push(p);
+    }
+    return out;
+  },
+
   async findSimilar(productId, { limit = 5 } = {}) {
     const all = load();
     const target = all.find((p) => p.id === productId);

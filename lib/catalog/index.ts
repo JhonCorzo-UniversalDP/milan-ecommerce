@@ -18,6 +18,7 @@ export const listProducts = adapter.listProducts.bind(adapter);
 export const getProductById = adapter.getProductById.bind(adapter);
 export const searchProducts = adapter.searchProducts.bind(adapter);
 export const findSimilar = adapter.findSimilar.bind(adapter);
+export const getProductsByIds = adapter.getProductsByIds.bind(adapter);
 
 export function formatPriceCents(priceCents: number): string {
   return new Intl.NumberFormat("es-CO", {
