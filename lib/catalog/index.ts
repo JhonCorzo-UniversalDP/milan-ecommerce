@@ -1,4 +1,5 @@
 import { jsonAdapter } from "./jsonAdapter";
+import { odooAdapter } from "./odooAdapter";
 import type { CatalogAdapter } from "./types";
 
 export type { Product, CatalogAdapter } from "./types";
@@ -6,9 +7,7 @@ export type { Product, CatalogAdapter } from "./types";
 function pickAdapter(): CatalogAdapter {
   const source = process.env.CATALOG_SOURCE ?? "json";
   if (source === "json") return jsonAdapter;
-  if (source === "odoo") {
-    throw new Error("odooAdapter not implemented");
-  }
+  if (source === "odoo") return odooAdapter;
   throw new Error(`Unknown CATALOG_SOURCE: ${source}`);
 }
 
